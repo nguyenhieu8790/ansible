@@ -1,0 +1,27 @@
+--- 
+- 
+  hosts: local
+  tasks: 
+    - 
+      command: "/bin/echo ansible_facts.{{ansible_all_ipv4_addresses}}"
+      name: "echo ansible_facts.{{ansible_all_ipv4_addresses}}"
+    - 
+      command: "echo test"
+      name: "echo {{ ansible_eth0[\"ipv4\"][\"address\"] }}"
+    - 
+      command: "echo test"
+      name: "echo {{ ansible_cmdline.KEYBOARDTYPE }}"
+    - 
+      command: "echo test"
+      name: "echo {{ ansible_eth0.ipv4.address }}"
+    - 
+      command: "echo test"
+      name: "echo {{ http_port }}"
+    - 
+      command: "echo test"
+      name: "echo {{ mail_port.real }}"
+  vars: 
+    http_port: "80 90"
+    mail_port: 
+      real: 443
+      test: 25
