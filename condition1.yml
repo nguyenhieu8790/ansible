@@ -1,0 +1,12 @@
+---
+-
+  hosts: all
+  tasks:
+    -
+      command: "echo {{inventory_hostname}}"
+      name: "echo test"
+      when: ansible_default_ipv4.address == "192.168.36.177"
+    -
+      command: "echo {{ansible_user_dir}} "
+      name: "echo {{ansible_user_dir}} "
+~
